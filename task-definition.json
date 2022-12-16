@@ -1,11 +1,11 @@
 {
-    "family": "nginx",
+    "family": "go-random",
     "taskRoleArn": "arn:aws:iam::420813127978:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::420813127978:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "containerDefinitions": [
         {
-            "name": "nginx",
+            "name": "go-random",
             "image": "420813127978.dkr.ecr.ap-southeast-1.amazonaws.com/go-random:latest",
             "repositoryCredentials": {
                 "credentialsParameter": ""
