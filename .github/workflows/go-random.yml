@@ -1,13 +1,15 @@
-on:
-  release:
-    types: [created]
-
 name: Deploy to Amazon ECS
+
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
     name: Deploy
     runs-on: self-hosted
+    environment: production
 
     steps:
     - name: Checkout
