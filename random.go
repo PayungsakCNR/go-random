@@ -38,6 +38,7 @@ func APIMiddleware() gin.HandlerFunc {
 func setupRouter() *gin.Engine {
 	r := gin.Default()
 	r.Use(APIMiddleware())
+	r.GET("/", GetHome)
 	r.GET("/healthz", GetHealthCheck)
 	r.GET("/sum", GetSum)
 
@@ -63,6 +64,11 @@ func GetSum(c *gin.Context) {
 func GetHealthCheck(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"msg": "up !!!"})
 }
+
+func GetHome(c *gin.Context) {
+        c.JSON(http.StatusOK, gin.H{"msg": "go-random up !!!"})
+}
+
 
 func main() {
 
