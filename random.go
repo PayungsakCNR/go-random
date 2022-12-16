@@ -30,7 +30,7 @@ func APIMiddleware() gin.HandlerFunc {
 			c.AbortWithStatus(204)
 			return
 		}
-
+		//c.Request.URL.Path = "/test2"
 		c.Next()
 	}
 }
@@ -38,10 +38,13 @@ func APIMiddleware() gin.HandlerFunc {
 func setupRouter() *gin.Engine {
 	r := gin.Default()
 	r.Use(APIMiddleware())
-	r.GET("/", GetHome)
-	r.GET("/healthz", GetHealthCheck)
-	r.GET("/sum", GetSum)
 
+	v1 := r.Group("/go-random") 
+	{
+		v1.GET("/", GetHome)
+		v1.GET("/healthz", GetHealthCheck)
+		v1.GET("/sum", GetSum)
+	}
 	return r
 }
 
@@ -69,6 +72,13 @@ func GetHome(c *gin.Context) {
         c.JSON(http.StatusOK, gin.H{"msg": "go-random up !!!"})
 }
 
+//func rewritePath(e *gin.Engine) {
+  //return func (c *gin.Context) {
+    //c.Request.URL.Path = "/" + c.Param("rest")
+    //e.HandleContext(c)
+    //c.Abort()
+  //}
+//}
 
 func main() {
 
