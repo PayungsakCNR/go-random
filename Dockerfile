@@ -24,6 +24,7 @@ FROM alpine:3.9
 RUN apk add ca-certificates
 
 COPY --from=build_base /tmp/go-app/out/go-random /app/go-random
+COPY .env .
 
 # This container exposes port 8080 to the outside world
 EXPOSE 3000
