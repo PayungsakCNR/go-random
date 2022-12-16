@@ -7,11 +7,9 @@
             "links": [],
             "portMappings": [
                 {
-                    "name": "go-random-3000-tcp",
                     "containerPort": 3000,
                     "hostPort": 3000,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
@@ -85,13 +83,8 @@
         "FARGATE"
     ],
     "requiresCompatibilities": [
-        "EC2",
-        "FARGATE"
+        "EC2"
     ],
     "cpu": "512",
-    "memory": "1024",
-    "runtimePlatform": {
-        "cpuArchitecture": "ARM64",
-        "operatingSystemFamily": "LINUX"
-    }
+    "memory": "1024"
 }
